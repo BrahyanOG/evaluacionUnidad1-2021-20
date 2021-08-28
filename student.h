@@ -8,6 +8,12 @@ struct Obj_t{
     int cedula;
 };
 
+struct _courseInfo_t{
+    char name[32];
+    int credits;
+    float grade;
+};
+
 void feature1(FILE *fin, FILE *fout);
 void feature2(FILE *fin, FILE *fout);
 void feature3(FILE *fin, FILE *fout);
