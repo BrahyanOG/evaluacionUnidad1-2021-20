@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "student.h"
+#include <stdint.h>
 
 int main(int argc, char *argv[]){
     
@@ -15,15 +16,18 @@ int main(int argc, char *argv[]){
         return(EXIT_FAILURE);
     }
 
-    for (int i = 0; i < 6; i++)
+    for (int i = 0; i < 9; i++)
     {
         if (i == 1) feature1(inFile, inFileOut);
         if (i == 2) feature2(inFile, inFileOut);
+        if (i == 3) feature3(inFile, inFileOut);
     }
-    
+
     fclose(inFile);
     fclose(inFileOut);
 
 
     return EXIT_SUCCESS;
 }
+
+
