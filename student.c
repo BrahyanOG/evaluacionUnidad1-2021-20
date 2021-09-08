@@ -5,67 +5,57 @@
 
 void feature1(FILE *fin, FILE *fout) {
     
-    char buffer[64];
+    char buffer[80];
     char *status = NULL;
-
     status = fgets(buffer, sizeof(buffer), fin);
-    if (status != NULL) {
+
+    if(status != NULL) {
         fprintf(fout, "%s", buffer);
     }
-    printf("\n");
-
-    fflush(fin);
 }
 
 void feature2(FILE *fin, FILE *fout) {
     
-    char buffer[70];
+    char buffer[80];
     char *status = NULL;
-
     status = fgets(buffer, sizeof(buffer), fin);
-    if (status != NULL) {
-        for (int i = sizeof(buffer) - 2; i >= 0; i--) {
-            fprintf(fout, "%c", buffer[i]);
-        }
 
-         fprintf(fout, "%s", "\n");
+    if(status != NULL) {
+        int var = strlen(buffer);
+        for (int i = var -2; i >= 0; i--) {
+        fprintf(fout, "%c", buffer[i]);
+        }
     }
-    
-    printf("\n");
-    fflush(fin);
 }
 
 void feature3(FILE *fin, FILE *fout){
 
-    int contador = 0;
-    char buffer[10];
-    int resultado = 0, valoractual = 0;
-    char *estado = NULL;
-    estado = fgets(buffer, sizeof(buffer), fin);
-    if (estado != NULL)
-    {
-        for (contador = 0; contador <= sizeof(buffer); contador++)
-        {   fscanf(fin , "%d",&valoractual);
-            resultado = resultado + valoractual; 
+    char buffer[80];
+    char *status = NULL;
+    char *ptr;
+    char *savePtr;
+    int i = 0;
+    status = fgets(buffer, sizeof(buffer), fin);
+
+    if (status != NULL) {
+        int resultado = 0;
+        savePtr = buffer;
+        while (*savePtr != 0x0a) {
+            resultado += strtol(savePtr, &ptr, 10);
+            savePtr = ptr;
         }
-     }
-    
-    fprintf(fout, "%d", resultado);
-    fflush(fin);
+        fprintf(fout, "\n%d", resultado);
+    }
+
 
 }
 
 
 
-
-
-
-
-
-    
-    
-    
-    
-    
-
+/*void feature4(FILE *fin, int **parr, int *length, char **op);
+void feature5(FILE *fout, int *parr, int length, char *op);
+void feature6(FILE *fin, struct Obj_t *pobj);
+void feature7(FILE *fout, struct Obj_t *pobj);
+void feature8(FILE *fin, struct Obj_t **pobj,int *length);
+void feature9(FILE *fout, struct Obj_t *pobj,int length); */
 
