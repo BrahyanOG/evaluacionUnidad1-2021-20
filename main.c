@@ -23,15 +23,17 @@ int main(int argc, char *argv[]){
 
     feature1(fin,fout);
     feature2(fin,fout);
-    /*feature3(fin,fout);
+    feature3(fin,fout);
 
     int *parr = NULL;
     int length = 0;
     char *op = NULL;
+    int lengthCourse = 0;
+    struct _courseInfo_t *pCourse;
     feature4(fin,&parr,&length,&op);
     feature5(fout, parr, length, op);
 
-    struct Obj_t obj = {"test",123};
+    struct Obj_t obj = {NULL, 0};
     feature6(fin, &obj);
     feature7(fout,&obj);
 
@@ -40,8 +42,9 @@ int main(int argc, char *argv[]){
     feature8(fin, &pobj, &objArrSize);
     feature9(fout, pobj,objArrSize);
     
-    // feature10: release memory
-/*
+
+    /*feature10: release memory
+
     free(parr);
     free(op);
     free(obj.nombre);
